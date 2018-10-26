@@ -33,28 +33,59 @@ int main () {
 	double numberone;
 	double numbertwo;
 	double answer;
+	string operationsymbol;
 	
-	// If the operator ID is 1, then do a sum
-	if (operation = 1) {
-		system("cls");
-		cout << "Enter a number: ";
-		cin >> numberone;
-		system("cls");
-		cout << numberone << " +" << endl << endl;
-		cout << "Enter a number: ";
-		cin >> numbertwo;
-		system("cls");
+	// Store in operationsymbol the symbol of the operation v:
+	if(operation==1) {
+		operationsymbol = " + ";
+	} else if (operation == 2){
+		operationsymbol = " - ";
+	} else if (operation == 3){
+		operationsymbol = " × ";
+	} else if (operation == 4) {
+		operationsymbol = " ÷ ";
+	}
+	
+	// Ask for numbers
+	 system("cls");
+	cout << "Enter a number: ";
+	cin >> numberone;
+	system("cls");	
+	cout << numberone << operationsymbol << endl << endl;
+	cout << "Enter a number: ";
+	cin >> numbertwo;
+	system("cls");
+		
+	// Do the operation
+
+	 if(operation==1) {
 		answer = numberone + numbertwo;
-		cout << numberone << " + " << numbertwo << " = " << answer << endl << endl;
-		numbertwo = 0;
-		while (numbertwo += 1) {
-			cout << "Enter a number (enter 0 to finish): ";
-			cin >> numbertwo;
-			numberone = answer;
+	} else if (operation == 2){
+		answer = numberone - numbertwo;
+	} else if (operation == 3){
+		answer = numberone * numbertwo;
+	} else if (operation == 4) {
+		answer = numberone / numbertwo;
+	}
+	
+	// Show the answer
+	cout << numberone << operationsymbol << numbertwo << " = " << answer << endl << endl;
+	numbertwo = 0;
+	while (numbertwo += 1) {
+		cout << "Enter a number (enter 0 to finish): ";
+		cin >> numbertwo;
+		numberone = answer;
+		if(operation==1) {
 			answer = numberone + numbertwo;
-			system("cls");
-			cout << numberone << " + " << numbertwo << " = " << answer << endl << endl;
+		} else if (operation == 2){
+			answer = numberone - numbertwo;
+		} else if (operation == 3){
+			answer = numberone * numbertwo;
+		} else if (operation == 4) {
+			answer = numberone / numbertwo;
 		}
+		system("cls");
+		cout << numberone << operationsymbol << numbertwo << " = " << answer << endl << endl;
 	}
 	return 0;
 }
